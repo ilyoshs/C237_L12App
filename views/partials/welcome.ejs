@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purr-ductive | Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff9f3; /* Cozy warm cream/beige background */
+            color: #4a3f35; /* Soft dark brown text for a warm theme */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .welcome-card {
+            background: #ffffff;
+            border: 2px solid #eaddcf;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(139, 115, 91, 0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+        .cat-display {
+            background-color: #fdf2e9;
+            border: 2px dashed #dcbca2;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+        .cat-img {
+            max-width: 180px;
+            height: auto;
+            image-rendering: pixelated; /* Enhances retro pixel art quality if using a pixel cat */
+        }
+        .btn-enter {
+            background-color: #ff9e7d; /* Soft energetic coral/peach button */
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn-enter:hover {
+            background-color: #e68563;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 158, 125, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container text-center">
+        <div class="welcome-card mx-auto">
+            
+            <h1 class="fw-bold mb-4" style="color: #bc7c5f;">🐾 Purr-ductive</h1>
+            
+            <div class="cat-display shadow-sm">
+                <img src="/images/cat-sleeping.png" alt="Sleeping Cat" class="cat-img img-fluid mb-3">
+                <p class="fst-italic mb-0 fw-medium text-muted">
+                    "Yawn... Welcome back, hooman! Ready to study together?"
+                </p>
+            </div>
+            
+            <h4 class="fw-semibold mb-2">Your Cozy Study Companion</h4>
+            <p class="text-secondary mb-4 small">
+                Track your focus history, log modules, and keep your virtual pet happy and thriving while you chase your academic goals!
+            </p>
+            
+            <a href="/dashboard" class="btn btn-enter btn-lg w-100 shadow-sm">
+                Enter Study Space &rarr;
+            </a>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
