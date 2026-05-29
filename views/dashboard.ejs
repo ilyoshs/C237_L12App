@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPurr Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        body {
+            background-color: #fffafc;
+            color: #e1afc3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        /* JOURNAL CONTAINER CARD */
+        .journal-card {
+            background-color: white;
+            border: 2px solid #e1afc3;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .section-title {
+            color: #e1afc3;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* TABLE CUSTOMIZATION */
+        .table thead {
+            background-color: #ffe2ec;
+        }
+
+        .table th {
+            color: #e1afc3;
+            font-weight: 600;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+        .subject-badge {
+            background-color: #ffe2ec;
+            color: #e1afc3;
+            font-weight: 600;
+        }
+
+        /* FOOTER BRANDING SIGNATURE */
+        .cute-footer {
+            text-align: center;
+            font-size: 24px;
+            color: #e1afc3;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('partials/navbar.ejs') %>
+
+        <div class="container my-5" style="max-width: 900px;">
+
+            <div class="cat-box text-center shadow-sm mb-3">
+
+            <div class="journal-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="section-title">My Purr-gress Journal</h3>
+                    <a href="/add-log" class="btn text-white fw-semibold px-3 btn-sm"
+                        style="background-color: #e1afc3; border-radius: 50px;">
+                        + Log Session
+                    </a>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Subject</th>
+                                <th>Duration</th>
+                                <th>Mood/Notes</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (studyLogs.length===0) { %>
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted py-4">
+                                        Your journal is empty. Log a session now!
+                                    </td>
+                                </tr>
+                                <% } else { %>
+                                    <% studyLogs.forEach((studyLog, index)=> { %>
+                                        <tr>
+                                            <td class="fw-bold text-secondary">
+                                                <%= index + 1 %>
+                                            </td>
+                                            <td>
+                                                <span class="badge subject-badge px-2 py-1">
+                                                    <%= studyLog.subjects %>
+                                                </span>
+                                            </td>
+                                            <td class="fw-medium">
+                                                <%= studyLog.duration %>
+                                            </td>
+                                            <td class="text-muted small fst-italic">
+                                                "<%= studyLog.mood %>"
+                                            </td>
+                                            <td class="text-end">
+                                                <a href="/studyLogs/<%= studyLog.id %>/update"
+                                                    class="btn btn-sm px-3 me-1"
+                                                    style="color: #55a18d; border: 1px solid #55a18d; background-color: transparent; border-radius: 20px;">
+                                                    <i class="bi bi-pencil-square"></i> Edit
+                                                </a>
+                                                <a href="/studyLogs/<%= studyLog.id %>/delete" class="btn btn-sm px-3"
+                                                    style="color: #eb8cd6; border: 1px solid #eb8cd6; background-color: transparent; border-radius: 20px;"
+                                                    onclick="return confirm('Are you sure you want to delete this log?');">
+                                                    <i class="bi bi-trash"></i> Delete
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="cute-footer">
+                ──── ୨୧ ────
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
