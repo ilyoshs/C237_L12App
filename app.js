@@ -13,12 +13,27 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 // In-memory data for studyLogs
 let studyLogs = [
-    { id: 1, subjects: 'C237', duration: 90, mood: 'Tired but productive' }
+    { id: 1, subjects: 'C237', duration: 90, mood: 'Tired but productive' }, 
+    { id: 2, subjects: 'C206', duration: 120, mood: 'Stressed' }, 
+    { id: 3, subjects: 'C376', duration: 50, mood: 'Still manageable' }, 
 ];
 
 //Define a route to render the welcome page 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index',{ studyLogs });
+});
+
+// Route to get a specific study log by ID
+app.get('/studyLogs/:id', function(req, res) {
+    const studyLogId = parseInt(req.params.id);
+    const studyLog = studyLogs.find(s => s.id === studyLogId);
+
+    if (studyLog) {
+        // You must pass the variable as 'studyLog' to match your EJS file
+        res.render('studyLogDetails', { studyLog }); 
+    } else {
+        res.status(404).send('Study log not found');
+    }
 });
 
 // Route to retrieve and display all study logs - This is where the "Enter" button takes you

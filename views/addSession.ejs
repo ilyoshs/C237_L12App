@@ -38,19 +38,26 @@
         <div class="container mt-3">
             <h2 class="mb-4" style="color: #e1afc3;">+ Log a Session</h2>
 
-            <form action="/addSession" method="POST">
+            <form action="/studyLogs" method="POST">
                 <div class="mb-3 mt-3">
-                    <label for="name">Subject:</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter subject" name="name">
+                    <label for="subjects">Subject:</label>
+                    <select class="form-select" id="subjects" name="subjects" required>
+                        <option value="">-- Select a Module --</option>
+                        <option value="C206">C206</option>
+                        <option value="C237">C237</option>
+                        <option value="C376">C376</option>
+                        <option value="C346">C245</option>
+                        <option value="C347">C240</option>
+                    </select>
                 </div>
                 <div class="mb-3 mt-3">
-                    <label for="location">Duration:</label>
-                    <input type="text" class="form-control" id="location" placeholder="Enter duration" name="location">
+                    <label for="duration">Duration:</label>
+                    <input type="text" class="form-control" id="duration" placeholder="Enter duration" name="duration">
                 </div>
 
                 <div class="mb-3 mt-3">
                     <label for="mood">Mood/Notes:</label>
-                    <textarea class="form-control" id="mood" placeholder="e.g., Tired but producctive..." name="mood"
+                    <textarea class="form-control" id="mood" placeholder="e.g., Tired but productive..." name="mood"
                         rows="3"></textarea>
                 </div>
 
