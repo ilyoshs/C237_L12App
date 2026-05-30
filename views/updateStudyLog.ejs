@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating...</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<style>
+    body {
+        background-color: #fffafc;
+        color: #e1afc3;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+    }
+
+    /* JOURNAL CONTAINER CARD */
+    .journal-card {
+        background-color: white;
+        border: 2px solid #e1afc3;
+        border-radius: 20px;
+        padding: 30px;
+    }
+
+    .section-title {
+        color: #e1afc3;
+        font-weight: 700;
+        margin: 0;
+    }
+</style>
+
+<body>
+    <%- include ('partials/navbar.ejs') %>
+        <div class="container mt-3">
+            <h2>Update Study Log</h2>
+
+            <!-- form to update study log info -->
+            <form action="/studyLogs/<%= updateStudyLog.id %>/update" method="POST">
+                <div class="mb-3 mt-3">
+                    <label for="subjects">Subjects:</label>
+                    <!-- display original name of study log in the value property -->
+                    <input type="text" class="form-control" id="subjects" value="<%= updateStudyLog.subjects %>"
+                        placeholder="Enter subjects" name="subjects">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="duration">Duration (minutes):</label>
+                    <input type="number" class="form-control" id="duration" value="<%= updateStudyLog.duration %>"
+                        placeholder="Enter duration" name="duration">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="mood">Mood:</label>
+                    <input type="text" class="form-control" id="mood" value="<%= updateStudyLog.mood %>"
+                        placeholder="Enter mood" name="mood">
+                </div>
+
+
+                <div class="mt-4 border-top pt-3 d-flex gap-2">
+                    <button type="submit" class="btn text-white px-4" style="background-color: #e1afc3;">
+                        Submit
+                    </button>
+
+                    <a href="/dashboard" class="btn btn-outline-secondary px-4">
+                        <i class="bi bi-arrow-left"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

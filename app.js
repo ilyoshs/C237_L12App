@@ -28,7 +28,7 @@ app.get('/dashboard', (req, res) => {
 });
 
 // Add a new study log form
-app.get('/addSession', function (req, res) {
+app.get('/studyLogs', function (req, res) {
     //render a view called "addSession"
     res.render('addSession');
 });
